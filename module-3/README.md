@@ -4,7 +4,7 @@ Product Recommendation system with TensorFlow
 
 ## About 
 
-This project makes product recommendation based on user and product data. It uses Tensorflow to create vectors, train AI and recommend products
+This project makes product recommendation based on user and product data. It uses Tensorflow to create vectors, train AI and recommend products using Threads in NodeJS
 
 ## Getting Started
 
