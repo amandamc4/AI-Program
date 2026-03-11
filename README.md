@@ -13,3 +13,5 @@ Enables AI chatbot on Chrome - sets AI and translator for browser chat. The AI m
 # Module 8
 Prompt practices and examples. 
 Project is a NextJs + SQLite + Better Auth project created with a prompt and using Context7 MCP server. It shows a initial page with an option to login with Github. It saves the user session info in SQLite. 
+
+Ollama and OpenRouter - examples of usage with curl requests
