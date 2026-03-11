@@ -1,0 +1,2 @@
+Go to this form https://forms.gle/5mGHXVKDLMFtjwBz7 and get the fields that are required to be filled out.
+Then go to the speaker's website at https://myweb-app-example/, get all the profile data that the form above needs and then choose a lecture in english that includes javascript in the title and fill up the form. Do not submit the form, I want to validate the process.

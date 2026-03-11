@@ -94,7 +94,6 @@ export class AIService {
     }
 
     async downloadModel(onProgress) {
-        console.log('hello')
         try {
             const session = await LanguageModel.create({
                 monitor(m) {
