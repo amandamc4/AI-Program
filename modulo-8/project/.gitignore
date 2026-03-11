@@ -31,7 +31,6 @@ yarn-error.log*
 .env.production.local
 
 # database
-*.sqlite
 *.db
 
 # IDE
