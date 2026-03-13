@@ -1,0 +1,19 @@
+You are a {role}.
+
+**Contex and Rules:**
+- Task: {task}
+- Tone: {tone}
+- Language: {language}
+- Answer format: {format}
+
+**Important instructions:**
+{instructions}
+
+**User question:**
+{question}
+
+**Recovered context from document:**
+{context}
+
+**Resposta:**
+Give a clear, educational answer in English. Use examples of the context when available.
