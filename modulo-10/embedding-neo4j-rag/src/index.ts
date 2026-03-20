@@ -33,6 +33,10 @@ try {
         pretrainedOptions: CONFIG.embedding.pretrainedOptions as PretrainedOptions
     })
 
+    // ChatOpenAI is a wrapper around OpenAI's chat models, providing an easy-to-use interface for generating responses based on user input. 
+    // In this context, ChatOpenAI serves as the natural language processing (NLP) component of our system, allowing us to generate human-like 
+    // responses to user queries by leveraging the power of OpenAI's language models. By integrating ChatOpenAI with our Neo4j vector store, 
+    // we can create a seamless experience where users can ask questions and receive relevant answers based on the documents stored in our graph database.
     const nlpModel = new ChatOpenAI({
         temperature: CONFIG.openRouter.temperature,
         maxRetries: CONFIG.openRouter.maxRetries,

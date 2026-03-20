@@ -1,3 +1,5 @@
+## Part 1 - AI Fundamentals
+
 # Module 2
 Practice learning with Tensorflow
 
@@ -15,3 +17,11 @@ Prompt practices and examples.
 Project is a NextJs + SQLite + Better Auth project created with a prompt and using Context7 MCP server. It shows a initial page with an option to login with Github. It saves the user session info in SQLite. 
 
 Ollama and OpenRouter - examples of usage with curl requests
+
+## Part 2 - Generative AI API's and Prompt Engineering
+
+# Modulo 1
+Using Openrouter SDK to chat 
+
+
+
