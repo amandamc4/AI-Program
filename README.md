@@ -23,5 +23,11 @@ Ollama and OpenRouter - examples of usage with curl requests
 # Modulo 1
 Using Openrouter SDK to chat 
 
+# Modulo 2
+LangGraph usage - creating Nodes and Edges on LangGraph and visualizing with LangSmith
+
+# Modulo 3
+Demonstration of **prompt engineering** with LangChain using structured outputs and conditional edges to capture user's intent for an appointment booking system
+
 
 
