@@ -29,5 +29,9 @@ LangGraph usage - creating Nodes and Edges on LangGraph and visualizing with Lan
 # Modulo 3
 Demonstration of **prompt engineering** with LangChain using structured outputs and conditional edges to capture user's intent for an appointment booking system
 
+# Modulo 4
+Demonstration of **LangGraph memory persistence** using conversational AI to recommend music based on user preferences. This project showcases how to build stateful, multi-turn conversations where the AI remembers context across messages. It saves users preferences in SQLite and message summaries in Postgres
 
+# Modulo 5
+Educational demonstration of **prompt injection attacks** and **guardrail defenses** in LLM-powered applications
 
