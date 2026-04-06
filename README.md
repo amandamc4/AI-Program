@@ -35,3 +35,9 @@ Demonstration of **LangGraph memory persistence** using conversational AI to rec
 # Modulo 5
 Educational demonstration of **prompt injection attacks** and **guardrail defenses** in LLM-powered applications
 
+# Modulo 6
+Sales report about courses bought by students. Data stored in Neo4J vector DB, using Langchain to build a graph which will build sql queries to find relevant data in Neo4J based on user's question. It can break a question into smaller subqueries and feed it into the query executor, finally using a response analyser to build a human report. 
+
+# Modulo 7
+Using LLM to analyze midia (pdf document) to answer questions
+
