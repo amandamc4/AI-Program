@@ -18,6 +18,10 @@ Project is a NextJs + SQLite + Better Auth project created with a prompt and usi
 
 Ollama and OpenRouter - examples of usage with curl requests
 
+# Modulo 10
+This example gets a pdf document, split into chunks (1000 characters) and transformed into embeddings, saving them in Neo4j
+Then Neo4j retrieves similar embeddings according to each question made. 
+
 ## Part 2 - Generative AI API's and Prompt Engineering
 
 # Modulo 1
@@ -40,4 +44,13 @@ Sales report about courses bought by students. Data stored in Neo4J vector DB, u
 
 # Modulo 7
 Using LLM to analyze midia (pdf document) to answer questions
+
+## Part 3 - MCPs
+
+# Modulo 2 - Exercise 1
+This module uses LangGraph to identify the intent of the user - in this example it will ask to rank top 5 products or total revenue from sales data in cvs files. It will then use provided MCP tools (MongoDb, filesystem and cvs to Json) to read the csv file, optionally convert it to Json, create a document in MongoDB and add sales data, run some query (aggregation) to find results, and finally write the results into a text file.
+
+# Modulo 2 - Exercise 2
+LangGraph agent that wraps SerpAPI Google Trends as a LangChain tool to answer video content strategy questions. It then analyses the trends and uses AI to generate a report and suggestion of best titles, content, etc
+
 
