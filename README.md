@@ -53,4 +53,11 @@ This module uses LangGraph to identify the intent of the user - in this example 
 # Modulo 2 - Exercise 2
 LangGraph agent that wraps SerpAPI Google Trends as a LangChain tool to answer video content strategy questions. It then analyses the trends and uses AI to generate a report and suggestion of best titles, content, etc
 
+# Modulo 3
+Create different type of AI agents with instructions for specific tasks in VSCode
+Add skills in VSCode
+
+# Modulo 4
+Create an MCP server (Stdio transport) for encryption/decryption using a passphrase. Create server, register tools, register resource info and prompt.
+
 
