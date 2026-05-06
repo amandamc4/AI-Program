@@ -120,6 +120,7 @@ mcpServer.registerPrompt(
     ({ message, encryptionKey }) => ({
         messages: [
             {
+                // who sends the prompt doesn't matter much, but using 'user' role makes it easier to test with LLMs since they often expect user prompts to trigger tool calls
                 role: 'user',
                 content: {
                     type: "text",
