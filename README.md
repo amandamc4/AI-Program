@@ -60,4 +60,18 @@ Add skills in VSCode
 # Modulo 4
 Create an MCP server (Stdio transport) for encryption/decryption using a passphrase. Create server, register tools, register resource info and prompt.
 
+# Modulo 5
+A CRUD server for customer using Fastify and MongoDB
+A MCP server that wraps this CRUD server
+
+# Modulo 6
+A CRUD server for customer using Fastify and MongoDB with added JWT token for Authentication and role based authorization supported by Fastify plugin
+A MCP server that wraps this CRUD server - uses service token to make API calls to the CRUD service
+
+# Modulo 7 
+Commands to publish the MCP server to private NPM registry
+
+# Modulo 8
+A Langchain agent that uses the MCP server tools to manage customers
+
 

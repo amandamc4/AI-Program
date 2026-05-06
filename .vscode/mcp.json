@@ -1,13 +1,18 @@
 {
-  "servers": {
-    "playwright-test": {
-      "type": "stdio",
-      "command": "npx",
-      "args": [
-        "playwright",
-        "run-test-mcp-server"
-      ]
-    }
-  },
-  "inputs": []
+	"servers": {
+		"playwright-test": {
+			"type": "stdio",
+			"command": "npx",
+			"args": [
+				"playwright",
+				"run-test-mcp-server"
+			]
+		},
+		"my-mcp-server-15f2286b": {
+			"type": "stdio",
+			"command": "start",
+			"args": []
+		}
+	},
+	"inputs": []
 }

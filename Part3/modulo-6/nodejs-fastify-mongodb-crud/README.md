@@ -2,7 +2,7 @@
 
 ## Description
 
-This project demonstrates how to perform CRUD operations using Node.js with the Fastify framework and MongoDB. It includes unit tests that verify the functionality of the API endpoints and track code coverage.
+This project demonstrates how to perform CRUD operations using Node.js with the Fastify framework and MongoDB, with JWT token generation, authentication, role based authorization and rate limiting. It includes unit tests that verify the functionality of the API endpoints and track code coverage.
 
 ## Getting Started
 
