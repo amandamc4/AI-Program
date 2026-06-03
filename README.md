@@ -74,4 +74,9 @@ Commands to publish the MCP server to private NPM registry
 # Modulo 8
 A Langchain agent that uses the MCP server tools to manage customers
 
+## Part 4 - Agents architecture
+
+# Modulo 1
+Defining an agent structure with agent.md, contracts, rules and skills. The agent in this case is a monitor agent that monitors, plans, executes tasks related to service alerts such as getting logs, read telemetry data, deploy history, etc in a service. 
+
 

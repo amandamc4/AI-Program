@@ -1,0 +1,163 @@
+{
+  "trace_id": "4ece7d6d1c26",
+  "tipo_agente": "task_based",
+  "entrada": "alerta de latencia no servico de pagamentos",
+  "evento": null,
+  "tempo_total_segundos": 0.0,
+  "tokens_consumidos": {
+    "prompt": 0,
+    "completion": 0,
+    "total": 0
+  },
+  "etapas": [
+    {
+      "etapa": 1,
+      "percepcao": "Alerta: alerta de latencia no servico de pagamentos\nModo: task_based\nEtapas realizadas: 1/10\nChamadas de ferramenta: 0/10",
+      "plano": {
+        "proxima_acao": "FINALIZAR",
+        "nome_ferramenta": null,
+        "argumentos_ferramenta": null,
+        "criterio_sucesso": "Diagnostico: sem evidencias"
+      },
+      "resultado_acao": null,
+      "avaliacao": {
+        "objetivo_alcancado": true,
+        "motivo": "Diagnostico: sem evidencias"
+      }
+    }
+  ],
+  "resumo": "Objetivo: desconhecido\nEtapas executadas: 1\nFerramentas chamadas: nenhuma\nResultado: Diagnostico: sem evidencias\nTipo: task_based",
+  "agente": "monitor-agent",
+  "telemetry_stream": [
+    {
+      "timestamp": "2026-05-13T16:08:53.120700",
+      "elapsed_ms": 0,
+      "trace_id": "4ece7d6d1c26",
+      "tipo": "inicio",
+      "dados": {
+        "entrada": "alerta de latencia no servico de pagamentos",
+        "objetivo": "desconhecido",
+        "max_etapas": 10,
+        "max_tokens": 50000
+      }
+    },
+    {
+      "timestamp": "2026-05-13T16:08:53.120759",
+      "elapsed_ms": 0,
+      "trace_id": "4ece7d6d1c26",
+      "tipo": "fase_concluida",
+      "dados": {
+        "fase": "perceber",
+        "etapa": 1,
+        "duracao_ms": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-13T16:08:53.120773",
+      "elapsed_ms": 0,
+      "trace_id": "4ece7d6d1c26",
+      "tipo": "fase_concluida",
+      "dados": {
+        "fase": "planejar",
+        "etapa": 1,
+        "duracao_ms": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-13T16:08:53.120781",
+      "elapsed_ms": 0,
+      "trace_id": "4ece7d6d1c26",
+      "tipo": "plano_gerado",
+      "dados": {
+        "proxima_acao": "FINALIZAR",
+        "nome_ferramenta": null,
+        "criterio_sucesso": "Diagnostico: sem evidencias"
+      }
+    },
+    {
+      "timestamp": "2026-05-13T16:08:53.120785",
+      "elapsed_ms": 0,
+      "trace_id": "4ece7d6d1c26",
+      "tipo": "fase_concluida",
+      "dados": {
+        "fase": "avaliar",
+        "etapa": 1,
+        "duracao_ms": 0.0
+      }
+    },
+    {
+      "timestamp": "2026-05-13T16:08:53.120812",
+      "elapsed_ms": 0,
+      "trace_id": "4ece7d6d1c26",
+      "tipo": "finalizado",
+      "dados": {
+        "etapas": 1,
+        "resultado": "Diagnostico: sem evidencias",
+        "tokens_total": 0
+      }
+    }
+  ],
+  "audit_logs": [
+    {
+      "timestamp": "2026-05-13T16:08:53.120781",
+      "elapsed_ms": 0,
+      "trace_id": "4ece7d6d1c26",
+      "tipo": "plano_gerado",
+      "dados": {
+        "proxima_acao": "FINALIZAR",
+        "nome_ferramenta": null,
+        "criterio_sucesso": "Diagnostico: sem evidencias"
+      }
+    },
+    {
+      "timestamp": "2026-05-13T16:08:53.120812",
+      "elapsed_ms": 0,
+      "trace_id": "4ece7d6d1c26",
+      "tipo": "finalizado",
+      "dados": {
+        "etapas": 1,
+        "resultado": "Diagnostico: sem evidencias",
+        "tokens_total": 0
+      }
+    }
+  ],
+  "health_metrics": {
+    "trace_id": "4ece7d6d1c26",
+    "taxa_sucesso_ferramentas": 0.0,
+    "ferramentas_sucesso": 0,
+    "ferramentas_falha": 0,
+    "circuit_breaker_ativacoes": 0,
+    "validacao_payload_falhas": 0,
+    "chamadas_llm": 1
+  },
+  "performance_data": {
+    "trace_id": "4ece7d6d1c26",
+    "tempo_total_ms": 0,
+    "tokens": {
+      "prompt": 0,
+      "completion": 0,
+      "total": 0
+    },
+    "chamadas_llm": 1,
+    "fases": {
+      "perceber": {
+        "total_ms": 0.0,
+        "contagem": 1,
+        "max_ms": 0,
+        "media_ms": 0.0
+      },
+      "planejar": {
+        "total_ms": 0.0,
+        "contagem": 1,
+        "max_ms": 0,
+        "media_ms": 0.0
+      },
+      "avaliar": {
+        "total_ms": 0.0,
+        "contagem": 1,
+        "max_ms": 0,
+        "media_ms": 0.0
+      }
+    }
+  }
+}
