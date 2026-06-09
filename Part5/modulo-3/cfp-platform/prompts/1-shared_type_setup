@@ -1,0 +1,2 @@
+Consulte o MCP do Nx para mapear nossos projetos. Identifique a biblioteca shared-types. Crie uma interface SpeakerDT estrita (Typescript) dentro dessa biblioteca.
+Esta interface deve conter: id(string), name (string), email (string), talkTitle (string) e isGDE (boolean). Nao modifique absolutamente nada nos apps frontend ou api.

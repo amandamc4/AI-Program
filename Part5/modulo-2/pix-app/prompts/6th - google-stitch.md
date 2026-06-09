@@ -1,0 +1,3 @@
+Crie uma tela web desktop para um 'Comprovante de Transferencia Pix' de sucesso.
+O design deve ser moderno, clean e minimalista, pensado para monitores largos. O conteudo deve estar em um card centralizado com sombra suave.
+Preciso dos seguintes elementos dentro do card: um icone grande de 'check' de sucesso no topo, o valor $150,00 em destaque, o nome do recebedpr 'Amanda', a data e hora, e um botao largo no rodape escrito 'Voltao ao inicio'. Use tons de azul escuro e verde neon para os destaques. 

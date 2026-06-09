@@ -76,7 +76,17 @@ A Langchain agent that uses the MCP server tools to manage customers
 
 ## Part 4 - Agents architecture
 
+Defining an agent structure with agent.md, contracts, rules and skills. The agent can be react, plan_execute or reflect.
+One agent is a monitor agent that monitors, plans, executes tasks related to service alerts such as getting logs, read telemetry data, deploy history, etc in a service. Another agent is a backlog decomposer to transform product into backlog stories.
+
+## Part 5
+
 # Modulo 1
-Defining an agent structure with agent.md, contracts, rules and skills. The agent in this case is a monitor agent that monitors, plans, executes tasks related to service alerts such as getting logs, read telemetry data, deploy history, etc in a service. 
+Using AI to extract all project edge cases, happy and sad paths, states (loading, error, empty), etc of a UI project
+Using AI to work with internationalization of text
+
+# Modulo 2
+Angular app done with prompts
+
 
 

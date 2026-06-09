@@ -1,0 +1,1 @@
+/opsx:explore Leia a estrutura atual do nosso Nx monorepo via MCP. Verifique onde estao os apps api e frontend, e confirme a existencia da biblioteca shared-types com o nosso SpeakerDTO. Apenar mapeie a topologia, nao sugira codigo.

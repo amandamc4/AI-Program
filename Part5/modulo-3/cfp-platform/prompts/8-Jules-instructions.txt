@@ -1,0 +1,11 @@
+@jules, atue como desenvolvedor full-stack senior.
+Implemente a feature de "Cadastro do Local do Evento" no nosso monorepo Nx.
+
+Diretrizes Obrigatorias:
+1 - Design System: Mantenha rigorosamente o padrao visual, cores e Design Tokens ja aplicados no formulario de CFP. O Novo formulario deve parecer parte do mesmo sistema.
+2 - Navegacao: Atualize o menu de navegacao para conter exatamente estas tres opcoes: "Cadastro de Evento" (/event/new), "Cadastro de Palestra" (/talks/new) e "Dashboard" (/dashboard)
+3 - Arquitetura: Crie um novo DTO chamado eventDTO em `@cfp-platform/sared-types` contento: nome, endereco, capacidade e data.
+4 - Backend (NestJS): Implemente o service/controller para receber o POST e salvar esses dados no array em memoria.
+5 - Frontend (Angular21): Crie o componente usando Reactive Form e Signals.
+
+Crie a branch, implemente o codigo respeitando as regras acimas e abra um Pull Request para a minha revisao.
