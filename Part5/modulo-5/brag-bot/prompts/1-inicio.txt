@@ -1,0 +1,16 @@
+Spec 02: Interface Visual Unipds e Mock de Dados
+Contexto: Projeto Angular 21 com Tailwind CSS. O Genkit e o MCP ja estao instalados.
+
+Objetivos de Interface e Roteamento:
+1 - Acesse https://unipds.com.br/org-pos-ia/ e extraia a identidade Visual
+2 - Crie dois componentes standlaone: 'DashboardComponent' e "DetailComponent'. Configure o 'app.routes.ts' para navegar entre eles (rota padrao para dashboard e '/detail/:id' para o detalhe)
+3 - Crie um 'BragService' usando Angular Signals. Ele deve ter:
+- um signal "brags" que guarda um array de conquistas
+- um signal "loading" (boolean)
+- um metodo 'generateMockBrag(prompt: string)' que simula uma chamada de rede (ex: 'setTimeout' de 1.5s), ative o loading, e depois adiciona um objeto JSON mockado estatico (com Titulo, Contexto, Impacto e Tecnologias) na lista de "brags".
+4 - No DashboardComponent (HTML):
+- crie um header com o titulo "Bag-bot | Pos IA Unipds"
+- crie um formulario com um '<textarea>' para a conquista bruta e um botao "Destilar Conquista". O botao deve mostrar um spinner ou mudar de texto enquanto 'loading' for true. 
+- Abaixo do formulario, use o laco '@for' do Angular para renderizar os cards das conquistas geradas. Cada card deve ser clicavel, redirecionando para o DetailComponent.
+5 - No DetailComponent (HTML):
+- renderize os detalhes completos da conquista (Contexto, Impacto, Metricas e Tecnologia) com um layout de leitura agradavel. Adicione um botao para "Voltao ao Dashboard"

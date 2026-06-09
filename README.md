@@ -88,5 +88,11 @@ Using AI to work with internationalization of text
 # Modulo 2
 Angular app done with prompts
 
+# Modulo 3 and 4
+Bulding a webapp in Angular 21 and NestJs using Nx with shared types. Use of Opensec to create specs with instructions for the AI to build the app. Using Cypress and Playwright to test UI.
+
+# Modulo 5
+Using Genkit and Gemini to create a Angular SSR app to store brag comments. 
+
 
 

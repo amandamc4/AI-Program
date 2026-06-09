@@ -1,0 +1,8 @@
+Sua tarefa e validar o fluxo de "cadastro de Local do Evento" no nosso monorepo Nx.
+Siga exatamente estes passos:
+1 - Certifique-se de que o ambiente completo (Frontend e API) esta rodando. Para isso, execute o comando 'nx run-many -t serve'.
+2 - Assim que o sistema estiver disponivel em http://localhost:4200, use as ferramentas do Playwright para navegar ate a aplicacao.
+3 - Encontre o formulario de Cadastro de Evento e preencha com dados realistas.
+4 - Submeta o formulario e valide se a mensagem de sucesso apareceu.
+
+use as ferramentas do Playwright MCP disponiveis para navegar e interagir. Reporte qualquer falha ou o sucesso da operacao. 

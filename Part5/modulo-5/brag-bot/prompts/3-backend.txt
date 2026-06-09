@@ -1,0 +1,27 @@
+Integracao final (micro-BFF, HttpClient e validacao)
+Contexto: O fluxo bragGeneratorFlow ja existe. A interface ja existe usando um servico com dados mockados.
+
+Instrucoes para o Agente:
+1 - Use o MCP do genkit: Consulte o contexto local se necessario para garantir a sintaxe
+
+2- Backend seguro (server.ts):
+- Modifique o arquivo server.ts do Angular
+- Logo apos a inicializacao do app Express ('const server=express()'), adicione 'server.use(express.json()')
+- Crie uma rota 'server.post ('/api.brag', async(req, res)=> {...})' antes da rota catch-all do Angular ('server.get('**')').
+- Dentro da rota, extraia 'req.body.definition'
+- Invoque o bragGeneratorFlow' passando exatamente o objeto {definition: req.body.definition}
+- Retorne o resultado em JSON. Em caso de erro, retorne status HTTP 500
+
+3 - Configuracao do Angular (app.config.ts)
+- Modifique 'src/app/app.config.ts' para fornecer o HttpClient.
+- Utilize provideHttpClient(withFetch()) para garantir compatibilidade perfeita com SSR.
+
+4 - Atualizacao do servico (brag.service.ts)
+- Remova completamente o metodo que gera dados mockados
+- Injete o HttpClient
+- Crie o metodo real 'generateBrag(definition: string)'
+- O fluxo deve: ligar o signal 'loading' (true), fazer um POST para 'api/brag' enviando '{definition}', adicionar o resultado da API ao signal da lista de brags, e desligar o loading (false). Trate possiveis erros.
+
+5 - Validacao de build (critico):
+- Apos implementar todas as alteracoes acima, execute no terminal o comando de build do projeto (ex: npm run build).
+- Verifique a saida do terminal. Se o Angular apontar qualquer erro de compilacao (Typescript, dependencias ausentes, falha no SSR), corrija o codigo automaticamente ate que o build passe com sucesso.

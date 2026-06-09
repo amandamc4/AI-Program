@@ -1,0 +1,38 @@
+Spec 03: Criacao do Genkit Flow via MCP (BragBot)
+
+Instrucao previa: USE O MCP DO GENKIT. Consulte o contexto do MCP conectado para utilizar a sintaxe correta da API do Genkit. 
+
+Atue como um Engenheiro de Software Senior especialista na criacao de aplicacoes baseadas em IA utilizando o framework Firebase Genkit.
+
+Sua tarefa e criar um arquivo Typescypt (ex: 'src/flows.ts') que defina os esquemas de dados e um fluxo do Genkit para transformar os rascunhos informais de um usuario sobre suas realizacoes no trabalho em um "Brag Document" profissional e bem estruturado.
+
+Especificacoes tecnicas e de configuracao:
+1 - Importe 'genkit' e 'z' do genkit.
+2 - Importe o plugin do Google AI: 'googleAI' do '@genkit-ai/google-gen-ai'
+3 - Importe a funcao 'v4' da biblioteca 'uuid' como 'uuidv4'
+4 - Inicialize a instancia do Genkit, configurando-o para usar o plugin do Google AI e definindo como modelo padrao o 'gemini-flash-latest' com uma temperatura de 0.8.
+
+Especificacoes dos Schemas (utilize Zod e adicione '.describe()' em todos os campos para guiar a LLM):
+1 - BragInputSchema: deve conter um campo 'definition' (string), que sera o rascunho informal do usuario
+2 - BragSchema (o schema de saida rigoroso em JSON):
+- title: sting (ex. Acao principal + resultado de alto nivel)
+- context: string (situacao/problema original. O que estava quebrado, lento, etc)
+- actionTaken: string (acao tecnica ou estrategica passo a passo tomada para resolver o problema)
+- businessImpact: string (qual o impacto de negocio. Tempo ganho, reducao de falhas, etc)
+- metrics: array de strings (apenas dados estritamentes quantificaveis. Ex: "50% reduction")
+- technologiesUsed: array de strings (ferramentas, linguagens e plataformas mencionadas ou inferidas)
+
+Implementacao do Fluxo (Flow)
+1 - Crie e exporte um fluxo cahamado 'bragGeneratorFlow' usando 'ai.defineFlow'
+2 - Configure-o para receber o BragInputSchema e retornar o BragSchema.
+3 - No corpo do fluxo, construa uma string de 'prompt' com o seguinte direcionamento:
+- Persona: O modelo deve atuar como um Sebior Career Consultant focado em planos de desenvolvimento individual (IDP) para engenheiros de Software
+- Objetivo: transformar o rascunho informal do usuario em um Brag Document executivo.
+- Regra 1: Usar tom profissional, objetivo e focado em impacto, sem adjetivos emocionais
+- Regra 2: Se nao existem metricas exatas, a IA deve inferir a natureza da matrica baseada na acao tomada.
+- Regra 3: Seguir estritamente o formado do schema JSON BragSchema
+- Regra 4: O output deve respeitar a linguagem original do input (se mandou em portugues, responde em portugues).
+4 - Inclua o 'input.definition' ao final desse prompt.
+5 - Chame a geracao de conteudo do Genkit (ai.generate), passando o prompt montado e exigindo que o output obedeca ao BragSchema.
+6 - verifique se existe um output valido, caso nao exita, solte um erro (throw new error)
+7 - O retorno final da funcao deve conter todas as propriedades mapeadas pela IA acrescidas de um campo 'id' contendo a geracao nativa de uma uuid (uuidv4())
