@@ -1,8 +1,8 @@
 @opsx:new create-event-tests
-Objetivo: Criar testes E2E tradicionais com Cypress para a tela de Cadastro de Eventos (/event/new)
-Localizacao: Crie o arquivo de teste no projeto E2E gerado (ex. `apps/frontend-e2e/src/e2e/event-registrations.cy.ts`).
+Objective: Create traditional E2E tests using Cypress for the Event Registration screen (`/event/new`).
+Location: Create the test file within the generated E2E project (e.g., `apps/frontend-e2e/src/e2e/event-registrations.cy.ts`).
 
-Diretrizes obrigatorias:
-1 - Cenario de sucesso: Navegar ate a rota 'event/new', preencher os campos (nome, endereco, capacidade, data) usando seletores CSS convencionais (class, id ou name), clicar no botao de submeter ocorreu com sucesso.
-2 - Cenario de erro: navegar ateh 'event/new', submeter o formulario vazio e usar assercoes para verificar se as mensagens de erro nativas de validacao aparecem na tela.
-3 - Regra de ouro: Use exclusivamente a sintaxe tradicional do Cypress (`cy.get()`, `cy.contains()`, `sould()`). Nao adicione bibliotecas externas de IA neste momento. 
+Mandatory guidelines:
+1 - Success scenario: Navigate to the `event/new` route, fill in the fields (name, address, capacity, date) using standard CSS selectors (class, id, or name), and click the submit button to ensure successful submission.
+2 - Error scenario: Navigate to `event/new`, submit the empty form, and use assertions to verify that native validation error messages appear on the screen.
+3 - Golden rule: Use exclusively standard Cypress syntax (`cy.get()`, `cy.contains()`, `should()`). Do not add external AI libraries at this stage.

@@ -1,6 +1,7 @@
-# TAREFA DE EXTRAÇÃO
-Com base em todo o histórico da nossa conversa sobre a feature de Pix Agendado (requisitos e edge cases mapeados anteriormente):
+# EXTRACTION TASK
 
-1. Identifique todos os cenários de erro, validação e exceção de sistema.
-2. Identifique os casos de sucesso (feedback positivo).
-3. Gere o JSON de mensagens para cada um desses cenários, aplicando rigorosamente as diretrizes do System Prompt atual.
+Based on the entire history of our conversation regarding the Scheduled Pix feature (requirements and edge cases previously mapped):
+
+1. Identify all error, validation, and system exception scenarios.
+2. Identify success cases (positive feedback).
+3. Generate the JSON for messages corresponding to each of these scenarios, strictly applying the guidelines of the current System Prompt.

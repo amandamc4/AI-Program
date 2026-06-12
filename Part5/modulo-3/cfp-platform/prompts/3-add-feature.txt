@@ -1,8 +1,8 @@
 /opsx:new change-id: add cfp feature
-Objetivo: Implementar o modulo de submissao de palestras (Call for Papers).
-Regras estritas de arquitetura:
-Frontend: Angular 21 em apps/frontend. Uso obrigatprio de Standalone Components, Signals para gestao de estado e WAI-ARIA para acessibilidade.
-Backend: NestJS em apps/api. Uso de @Body() com validacao estrita via class-validator
-Shared: Ambos devem consumir o contrato SpeakerDTO exportado da lib shared-types.
-Qualidade (Testes unitarios obrigatorios): O plano deve prever a criacao de testes com Jest. O nestJs precisa de testes garantindo que payloads invalidos sejam rejeitados (400 bad request). O angular prcisa de testes validando o estado inicial do Signal e o bloqueio do botao de envio.
-Gere os arquivos proposal.md, sedign.md e  tasks.md. Nao escreva nenhum codigo de aplicacao ou teste ainda.
+Objective: Implement the talk submission module (Call for Papers).
+Strict architectural rules:
+Frontend: Angular 21 in `apps/frontend`. Mandatory use of Standalone Components, Signals for state management, and WAI-ARIA for accessibility.
+Backend: NestJS in `apps/api`. Use of `@Body()` with strict validation via `class-validator`.
+Shared: Both must consume the `SpeakerDTO` contract exported from the `shared-types` library.
+Quality (Mandatory unit tests): The plan must include the creation of tests using Jest. NestJS requires tests ensuring invalid payloads are rejected (400 Bad Request). Angular requires tests validating the initial Signal state and the disabling of the submit button.
+Generate the files `proposal.md`, `design.md`, and `tasks.md`. Do not write any application or test code yet.

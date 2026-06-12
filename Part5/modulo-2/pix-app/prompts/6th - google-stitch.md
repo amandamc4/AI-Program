@@ -1,3 +1,3 @@
-Crie uma tela web desktop para um 'Comprovante de Transferencia Pix' de sucesso.
-O design deve ser moderno, clean e minimalista, pensado para monitores largos. O conteudo deve estar em um card centralizado com sombra suave.
-Preciso dos seguintes elementos dentro do card: um icone grande de 'check' de sucesso no topo, o valor $150,00 em destaque, o nome do recebedpr 'Amanda', a data e hora, e um botao largo no rodape escrito 'Voltao ao inicio'. Use tons de azul escuro e verde neon para os destaques. 
+Create a desktop web screen for a successful 'Pix Transfer Receipt'.
+The design should be modern, clean, and minimalist, optimized for wide monitors. The content should be displayed within a centered card featuring a soft shadow.
+The card needs to include the following elements: a large success checkmark icon at the top, the amount $150.00 prominently displayed, the recipient's name ('Amanda'), the date and time, and a wide button at the bottom labeled 'Return to home'. Use shades of dark blue and neon green for the highlights.

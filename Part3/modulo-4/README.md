@@ -1,4 +1,4 @@
-# @erickwendel/ciphersuite-mcp
+#ciphersuite-mcp
 
 An [MCP (Model Context Protocol)](https://modelcontextprotocol.io) server that provides AES-256-CBC encryption and decryption tools, a resource describing the algorithm, and ready-to-use prompts — all runnable directly inside VS Code Copilot Chat.
 
@@ -6,13 +6,13 @@ An [MCP (Model Context Protocol)](https://modelcontextprotocol.io) server that p
 
 ## What it does
 
-| Capability | Name | Description |
-|---|---|---|
-| 🔧 Tool | `encrypt_message` | Encrypts any plain-text message with a passphrase |
-| 🔧 Tool | `decrypt_message` | Decrypts a previously encrypted message with the same passphrase |
-| 📄 Resource | `encryption://info` | Returns details about the algorithm, key derivation, and output format |
-| 💬 Prompt | `encrypt_message_prompt` | Pre-built prompt that asks the agent to encrypt a message |
-| 💬 Prompt | `decrypt_message_prompt` | Pre-built prompt that asks the agent to decrypt a message |
+| Capability  | Name                     | Description                                                            |
+| ----------- | ------------------------ | ---------------------------------------------------------------------- |
+| 🔧 Tool     | `encrypt_message`        | Encrypts any plain-text message with a passphrase                      |
+| 🔧 Tool     | `decrypt_message`        | Decrypts a previously encrypted message with the same passphrase       |
+| 📄 Resource | `encryption://info`      | Returns details about the algorithm, key derivation, and output format |
+| 💬 Prompt   | `encrypt_message_prompt` | Pre-built prompt that asks the agent to encrypt a message              |
+| 💬 Prompt   | `decrypt_message_prompt` | Pre-built prompt that asks the agent to decrypt a message              |
 
 ### How encryption works
 
@@ -50,19 +50,23 @@ Create (or open) `.vscode/mcp.json` in your workspace and add:
   "servers": {
     "ciphersuite-mcp": {
       "command": "node",
-      "args": ["--experimental-strip-types", "ABSOLUTE_PATH_TO_PROJECT/src/index.ts"]
+      "args": [
+        "--experimental-strip-types",
+        "ABSOLUTE_PATH_TO_PROJECT/src/index.ts"
+      ]
     }
   }
 }
 ```
 
 or via npm
+
 ```json
 {
   "servers": {
     "ciphersuite-mcp": {
       "command": "npx",
-      "args": ["-y", "@erickwendel/ciphersuite-mcp"]
+      "args": ["-y", "@amandamc4/ciphersuite-mcp"]
     }
   }
 }
@@ -139,10 +143,10 @@ tests/
 
 ## Available scripts
 
-| Script | Description |
-|---|---|
-| `npm start` | Start the server (used by MCP clients) |
-| `npm run dev` | Start with file-watch and Node.js inspector |
-| `npm test` | Run all tests |
-| `npm run test:dev` | Run tests in watch mode |
-| `npm run mcp:inspect` | Open the MCP Inspector UI |
+| Script                | Description                                 |
+| --------------------- | ------------------------------------------- |
+| `npm start`           | Start the server (used by MCP clients)      |
+| `npm run dev`         | Start with file-watch and Node.js inspector |
+| `npm test`            | Run all tests                               |
+| `npm run test:dev`    | Run tests in watch mode                     |
+| `npm run mcp:inspect` | Open the MCP Inspector UI                   |

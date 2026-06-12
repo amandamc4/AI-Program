@@ -1,84 +1,80 @@
-# 🔍 Módulo 01: Estratégia e Design de Produtos AI-First
+# 🔍 Module 01: AI-First Product Strategy and Design
 
-Este módulo foca na utilização da Inteligência Artificial como uma ferramenta estratégica de engenharia para o desenvolvimento de software. O objetivo não é "gerar texto", mas sim transformar requisitos ambíguos em especificações técnicas sólidas e processar dados de utilizadores para uma tomada de decisão baseada em evidências.
+This module focuses on using Artificial Intelligence as a strategic engineering tool for software development. The goal is not merely to "generate text," but to transform ambiguous requirements into robust technical specifications and process user data for evidence-based decision-making.
 
-Aqui, a IA atua como uma camada de **Refinamento Técnico** e **Redução de Variabilidade** antes de qualquer implementação de código.
+Here, AI acts as a layer for **Technical Refinement** and **Variability Reduction** prior to any code implementation.
 
-## 🎯 Objetivos de Engenharia
+## 🎯 Engineering Objectives
 
-* **Rubber Ducking Estruturado:** Utilizar o Google AI Studio para "estressar" requisitos, identificando falhas na lógica de negócio e *edge cases* (casos de borda) esquecidos.
-* **Diagramação Automatizada:** Converter especificações funcionais em fluxos lógicos visuais utilizando **Mermaid.js**.
-* **Data Discovery:** Criar **Structured Prompts (JSON)** para sanitizar e analisar grandes volumes de feedback de utilizadores.
-* **Engenharia de Prompt:** Dominar o controlo de *Temperature* e *Safety Settings* para garantir saídas determinísticas.
-
----
-
-## 🛠️ Stack Tecnológica
-
-* **Engine:** Google Gemini (1.5 Pro / Flash) via [Google AI Studio](https://aistudio.google.com/)
-* **Notação:** [Mermaid.js](https://mermaid.js.org/) para diagramas de fluxo.
-* **Padrão de Prompt:** JSON Prompts (Foco em *System Instructions* e *Few-Shot*).
+- **Structured Rubber Ducking:** Use Google AI Studio to "stress-test" requirements, identifying flaws in business logic and overlooked edge cases.
+- **Automated Diagramming:** Convert functional specifications into visual logic flows using **Mermaid.js**.
+- **Data Discovery:** Create **Structured Prompts (JSON)** to sanitize and analyze large volumes of user feedback.
+- **Prompt Engineering:** Master the control of _Temperature_ and _Safety Settings_ to ensure deterministic outputs.
 
 ---
 
-## 📂 Estrutura de Arquivos do Módulo
+## 🛠️ Technology Stack
 
-Os entregáveis deste módulo devem seguir estritamente a seguinte organização de pastas para garantir o versionamento da "inteligência" do projeto:
+- **Engine:** Google Gemini (1.5 Pro / Flash) via [Google AI Studio](https://aistudio.google.com/)
+- **Notation:** [Mermaid.js](https://mermaid.js.org/) for flow diagrams.
+- **Prompt Pattern:** JSON Prompts (Focus on _System Instructions_ and _Few-Shot_). ---
+
+## 📂 Module File Structure
+
+The deliverables for this module must strictly follow the folder organization below to ensure version control of the project's "intelligence":
 
 ```bash
 modulo-01-discovery-refinement/
 ├── prompts/
-│   ├── system-instructions-refinement.json  # Prompt de Arquiteto de Software (Aula 1)
-│   └── insight-distiller.json               # Configuração do Structured Prompt (Aula 5)
+│   ├── system-instructions-refinement.json  # Software Architect Prompt (Lesson 1)
+│   └── insight-distiller.json               # Structured Prompt Configuration (Lesson 5)
 ├── docs/
 │   └── refinement/
-│       ├── briefing-bruto.md                # O problema original (Input)
-│       ├── edge-cases.md                    # Lista de falhas identificadas pela IA
-│       └── fluxo-logico.mmd                 # Código Mermaid.js do fluxo refinado
+│       ├── briefing-bruto.md                # Original problem (Input)
+│       ├── edge-cases.md                    # List of failures identified by the AI
+│       └── fluxo-logico.mmd                 # Mermaid.js code for the refined flow
 ├── data/
-│   └── raw-feedbacks.json                   # Dataset bruto (logs/comentários)
+│   └── raw-feedbacks.json                   # Raw dataset (logs/comments)
 └── reports/
-    └── backlog-priorizado.json              # Saída estruturada da análise de dados
+└── backlog-priorizado.json              # Structured output from data analysis
 ```
 
 ---
 
-## 🚀 Guia de Execução dos Projetos
+## 🚀 Project Execution Guide
 
-### Projeto 1: Refinamento de Requisitos e Edge Cases
+### Project 1: Requirements Refinement and Edge Cases
 
-Foco: Antecipação de falhas e mapeamento de estados de erro.
+Focus: Anticipating failures and mapping error states.
 
-Configuração: No Google AI Studio, copie o conteúdo de prompts/system-instructions-refinement.json para o campo System Instructions.
+Setup: In Google AI Studio, copy the contents of `prompts/system-instructions-refinement.json` into the **System Instructions** field.
 
-Input: Insira o conteúdo de docs/refinement/briefing-bruto.md (Cenário: Pix Agendado).
+Input: Insert the content from `docs/refinement/briefing-bruto.md` (Scenario: Scheduled Pix Transfer).
 
-Execução: Solicite à IA a análise de "Caminhos Infelizes" (Unhappy Paths) e a geração do código Mermaid.
+Execution: Ask the AI ​​to analyze "Unhappy Paths" and generate the Mermaid code.
 
-Validação: Renderize o diagrama Mermaid num editor compatível (ex: Plugin do VS Code ou Mermaid Live Editor) e valide a lógica.
+Validation: Render the Mermaid diagram in a compatible editor (e.g., VS Code plugin or Mermaid Live Editor) and validate the logic.
 
-### Projeto 2: Destilador de Insights (Data Discovery)
+### Project 2: Insight Distiller (Data Discovery)
 
-Foco: Transformação de dados não estruturados em backlog técnico.
+Focus: Transforming unstructured data into a technical backlog.
 
-Preparação: Utilize o arquivo data/raw-feedbacks.json.
+Preparation: Use the `data/raw-feedbacks.json` file.
 
-Configuração: No Google AI Studio, selecione o modo Structured Prompt.
+Setup: In Google AI Studio, select **Structured Prompt** mode. Schema: Define output parameters according to `prompts/insight-distiller.json` (e.g., category, sentiment_score, technical_priority).
 
-Schema: Defina os parâmetros de saída conforme prompts/insight-distiller.json (ex: category, sentiment_score, technical_priority).
+Parameters: Set Temperature to 0 to ensure the analysis is factual and free from hallucinations.
 
-Parâmetros: Ajuste a Temperature para 0 para garantir que a análise seja factual e livre de alucinações.
+Output: Export the JSON result to the `reports/` folder.
 
-Output: Exporte o resultado JSON para a pasta reports/.
+## 📦 Final Deliverable (Acceptance Criteria)
 
-## 📦 Entregável Final (Critérios de Aceitação)
+For this module to be considered complete at a Senior level, the repository must demonstrate:
 
-Para considerar este módulo concluído com nível Sénior, o repositório deve demonstrar:
+Prompt Versioning: JSON files in `/prompts` must contain clear, reusable system instructions.
 
-Versionamento de Prompts: Os arquivos JSON em /prompts devem conter as instruções de sistema claras e reutilizáveis.
+Traceability: It must be possible to read `briefing-bruto.md` and see how it evolved into `fluxo-logico.mmd` through AI intervention.
 
-Rastreabilidade: Deve ser possível ler o briefing-bruto.md e ver como ele evoluiu para o fluxo-logico.mmd através da intervenção da IA.
+Determinism: The data report (`backlog-priorizado.json`) must be consistent and actionable, ready for import into Jira or Trello.
 
-Determinismo: O relatório de dados (backlog-priorizado.json) deve ser consistente e acionável, pronto para ser importado para um Jira ou Trello.
-
-Nota: Embora utilizemos o ecossistema Google para demonstração, os fundamentos de Structured Prompting e System Instructions aplicam-se a qualquer LLM (Claude, GPT-4, Llama). O foco é a metodologia de engenharia, não a ferramenta.
+Note: Although we use the Google ecosystem for demonstration purposes, the fundamentals of Structured Prompting and System Instructions apply to any LLM (Claude, GPT-4, Llama). The focus is on the engineering methodology, not the specific tool.

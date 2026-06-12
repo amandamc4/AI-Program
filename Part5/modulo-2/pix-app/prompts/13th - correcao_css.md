@@ -1,6 +1,6 @@
-Responsividade: Temos dois ajustes para mobile (telas menores que 600px). 
-1) No @pix-history.component.css, o layout horizontal da lista está espremendo os valores. Mude o item da lista para coluna (flex-direction: column). 
-2) O menu lateral (@app.component.ts, .html e .css) está esmagando a tela. Transforme-o em um menu colapsável. Crie um Signal 'isMenuOpen' no TypeScript. No mobile, esconda o menu lateral e exiba um botão de 'menu hambúrguer' do @material-symbols-outlined no topo para abrir/fechar a navegação.
+Responsiveness: We have two adjustments needed for mobile (screens smaller than 600px).
 
+1. In `@pix-history.component.css`, the horizontal list layout is squeezing the values. Change the list item to a column layout (`flex-direction: column`).
+2. The side menu (`@app.component.ts`, `.html`, and `.css`) is crowding the screen. Convert it into a collapsible menu. Create an `isMenuOpen` Signal in the TypeScript file. On mobile, hide the side menu and display a "hamburger menu" button (using `@material-symbols-outlined`) at the top to toggle the navigation.
 
-Temos um problema de acessibilidade no nosso recibo de Pix. O texto está com uma cor escura sobre o fundo azul noturno, impossibilitando a leitura. Por favor, corrija o CSS do recibo, aplicando a nossa variável var(--color-text-light) para garantir o contraste e a legibilidade.
+We have an accessibility issue with our Pix receipt. The text color is too dark against the midnight blue background, making it unreadable. Please fix the receipt's CSS by applying our `var(--color-text-light)` variable to ensure proper contrast and readability.

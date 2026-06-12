@@ -1,12 +1,14 @@
-Modulo 1 - aula 1
-# Ticket: Novo Fluxo de Transferência Pix Agendado
+Module 1 - Lesson 1
 
-**Descrição:**
-Precisamos criar uma tela onde o usuário possa agendar um Pix. Ele deve escolher o contato, colocar o valor, selecionar a data e confirmar. Se der sucesso, mostra a tela de comprovante. 
+# Ticket: New Scheduled Pix Transfer Flow
 
-**Regras:**
-- O limite diário é R$ 5.000,00.
-- Não pode agendar para o mesmo dia (se for hoje, é Pix normal).
-- Tem que ter um botão para cancelar o agendamento depois.
+**Description:**
+We need to create a screen where the user can schedule a Pix transfer. The user must choose a contact, enter the amount, select the date, and confirm. Upon success, the receipt screen should be displayed.
 
-Esse seria o prompt inicial de um PO por exemplo e usa o system-instructions-refinement.md para refinar
+**Rules:**
+
+- The daily limit is R$ 5,000.00.
+- Scheduling for the same day is not allowed (if it is for today, it counts as a standard Pix transfer).
+- There must be a button to cancel the scheduled transfer later.
+
+This would be an initial prompt from a PO, for example, and it uses `system-instructions-refinement.md` for refinement.

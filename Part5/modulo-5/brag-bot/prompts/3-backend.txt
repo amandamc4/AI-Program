@@ -1,27 +1,27 @@
-Integracao final (micro-BFF, HttpClient e validacao)
-Contexto: O fluxo bragGeneratorFlow ja existe. A interface ja existe usando um servico com dados mockados.
+Final integration (micro-BFF, HttpClient, and validation)
+Context: The `bragGeneratorFlow` already exists. The interface is already in place, currently using a service with mocked data.
 
-Instrucoes para o Agente:
-1 - Use o MCP do genkit: Consulte o contexto local se necessario para garantir a sintaxe
+Instructions for the Agent:
+1 - Use the Genkit MCP: Consult the local context if necessary to ensure correct syntax.
 
-2- Backend seguro (server.ts):
-- Modifique o arquivo server.ts do Angular
-- Logo apos a inicializacao do app Express ('const server=express()'), adicione 'server.use(express.json()')
-- Crie uma rota 'server.post ('/api.brag', async(req, res)=> {...})' antes da rota catch-all do Angular ('server.get('**')').
-- Dentro da rota, extraia 'req.body.definition'
-- Invoque o bragGeneratorFlow' passando exatamente o objeto {definition: req.body.definition}
-- Retorne o resultado em JSON. Em caso de erro, retorne status HTTP 500
+2 - Secure backend (server.ts):
+- Modify the Angular `server.ts` file.
+- Immediately after initializing the Express app (`const server = express()`), add `server.use(express.json())`.
+- Create a route `server.post('/api/brag', async (req, res) => { ... })` before the Angular catch-all route (`server.get('**')`).
+- Inside the route, extract `req.body.definition`.
+- Invoke `bragGeneratorFlow`, passing exactly the object `{ definition: req.body.definition }`.
+- Return the result as JSON. In case of error, return HTTP status 500.
 
-3 - Configuracao do Angular (app.config.ts)
-- Modifique 'src/app/app.config.ts' para fornecer o HttpClient.
-- Utilize provideHttpClient(withFetch()) para garantir compatibilidade perfeita com SSR.
+3 - Angular configuration (app.config.ts):
+- Modify `src/app/app.config.ts` to provide `HttpClient`.
+- Use `provideHttpClient(withFetch())` to ensure seamless SSR compatibility.
 
-4 - Atualizacao do servico (brag.service.ts)
-- Remova completamente o metodo que gera dados mockados
-- Injete o HttpClient
-- Crie o metodo real 'generateBrag(definition: string)'
-- O fluxo deve: ligar o signal 'loading' (true), fazer um POST para 'api/brag' enviando '{definition}', adicionar o resultado da API ao signal da lista de brags, e desligar o loading (false). Trate possiveis erros.
+4 - Service update (brag.service.ts):
+- Completely remove the method that generates mocked data.
+- Inject `HttpClient`.
+- Create the actual method `generateBrag(definition: string)`.
+- The method should: set the `loading` signal to `true`, perform a POST request to `api/brag` sending `{ definition }`, add the API result to the `brags` list signal, and set `loading` to `false`. Handle potential errors.
 
-5 - Validacao de build (critico):
-- Apos implementar todas as alteracoes acima, execute no terminal o comando de build do projeto (ex: npm run build).
-- Verifique a saida do terminal. Se o Angular apontar qualquer erro de compilacao (Typescript, dependencias ausentes, falha no SSR), corrija o codigo automaticamente ate que o build passe com sucesso.
+5 - Build validation (critical):
+- After implementing all the changes above, run the project's build command in the terminal (e.g., `npm run build`).
+- Check the terminal output. If Angular reports any compilation errors (TypeScript, missing dependencies, SSR failure), automatically fix the code until the build succeeds.

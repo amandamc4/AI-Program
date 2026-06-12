@@ -1,5 +1,5 @@
 {
-  "name": "@erickwendel/ew-customers-mcp",
+  "name": "@amandamc4/ew-customers-mcp",
   "version": "0.0.1",
   "description": "MCP server that exposes a customer CRUD API as tools for use with GitHub Copilot and other MCP-compatible agents",
   "main": "src/index.ts",

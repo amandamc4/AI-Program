@@ -1,16 +1,16 @@
-Spec 02: Interface Visual Unipds e Mock de Dados
-Contexto: Projeto Angular 21 com Tailwind CSS. O Genkit e o MCP ja estao instalados.
+Spec 02: Unipds Visual Interface and Data Mocking
+Context: Angular 21 project with Tailwind CSS. Genkit and MCP are already installed.
 
-Objetivos de Interface e Roteamento:
-1 - Acesse https://unipds.com.br/org-pos-ia/ e extraia a identidade Visual
-2 - Crie dois componentes standlaone: 'DashboardComponent' e "DetailComponent'. Configure o 'app.routes.ts' para navegar entre eles (rota padrao para dashboard e '/detail/:id' para o detalhe)
-3 - Crie um 'BragService' usando Angular Signals. Ele deve ter:
-- um signal "brags" que guarda um array de conquistas
-- um signal "loading" (boolean)
-- um metodo 'generateMockBrag(prompt: string)' que simula uma chamada de rede (ex: 'setTimeout' de 1.5s), ative o loading, e depois adiciona um objeto JSON mockado estatico (com Titulo, Contexto, Impacto e Tecnologias) na lista de "brags".
-4 - No DashboardComponent (HTML):
-- crie um header com o titulo "Bag-bot | Pos IA Unipds"
-- crie um formulario com um '<textarea>' para a conquista bruta e um botao "Destilar Conquista". O botao deve mostrar um spinner ou mudar de texto enquanto 'loading' for true. 
-- Abaixo do formulario, use o laco '@for' do Angular para renderizar os cards das conquistas geradas. Cada card deve ser clicavel, redirecionando para o DetailComponent.
-5 - No DetailComponent (HTML):
-- renderize os detalhes completos da conquista (Contexto, Impacto, Metricas e Tecnologia) com um layout de leitura agradavel. Adicione um botao para "Voltao ao Dashboard"
+Interface and Routing Objectives:
+1 - Visit https://unipds.com.br/org-pos-ia/ and extract the visual identity.
+2 - Create two standalone components: 'DashboardComponent' and 'DetailComponent'. Configure 'app.routes.ts' to navigate between them (default route for dashboard and '/detail/:id' for the detail view).
+3 - Create a 'BragService' using Angular Signals. It must include:
+- a "brags" signal storing an array of achievements
+- a "loading" signal (boolean)
+- a 'generateMockBrag(prompt: string)' method that simulates a network call (e.g., a 1.5s 'setTimeout'), activates the loading state, and then adds a static mocked JSON object (with Title, Context, Impact, and Technologies) to the "brags" list.
+4 - In DashboardComponent (HTML):
+- create a header with the title "Brag-bot | Pos IA Unipds"
+- create a form with a '<textarea>' for the raw achievement and a "Distill Achievement" button. The button should show a spinner or change text while 'loading' is true.
+- Below the form, use Angular's '@for' loop to render cards for the generated achievements. Each card must be clickable, redirecting to the DetailComponent.
+5 - In DetailComponent (HTML):
+- render the full achievement details (Context, Impact, Metrics, and Technology) with a reader-friendly layout. Add a "Back to Dashboard" button.

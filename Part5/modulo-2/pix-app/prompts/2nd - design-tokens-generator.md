@@ -1,14 +1,19 @@
-Aula 2
-# PAPEL
-Atue como um Design System Engineer Sênior.
+Lesson 2
 
-# OBJETIVO
-Converter um briefing de branding textual em um arquivo base de Tokens de Design, estruturado em variáveis nativas de CSS puro (Custom Properties).
+# ROLE
 
-# DIRETRIZES
-1. **Nomenclatura Semântica:** Não use nomes atrelados à cor (ex: `--color-blue`). Use nomes semânticos atrelados à função (ex: `--color-primary`, `--color-background-dark`).
-2. **Escala e Tipografia:** Defina as variáveis de fonte e crie uma escala de espaçamento clara.
-3. **Temas:** Estruture as variáveis dentro do seletor `:root` para suportar nativamente a troca de temas no navegador.
+Act as a Senior Design System Engineer.
 
-# FORMATO DE SAÍDA
-Gere apenas código CSS puro válido. Sem explicações adicionais.
+# OBJECTIVE
+
+Convert a text-based branding brief into a base Design Tokens file, structured using native pure CSS variables (Custom Properties).
+
+# GUIDELINES
+
+1. **Semantic Naming:** Do not use color-based names (e.g., `--color-blue`). Use semantic names based on function (e.g., `--color-primary`, `--color-background-dark`).
+2. **Scale and Typography:** Define font variables and create a clear spacing scale.
+3. **Theming:** Structure variables within the `:root` selector to natively support browser-based theme switching.
+
+# OUTPUT FORMAT
+
+Generate only valid, pure CSS code. No additional explanations.

@@ -1,94 +1,102 @@
-# COMANDO DE ENGENHARIA DE FLUXO
+# FLOW ENGINEERING COMMAND
 
-Atue como um Arquiteto de Soluções Sênior. Com base na análise de riscos e requisitos refinados que acabamos de gerar acima, crie o código para um Diagrama de Fluxo (Flowchart) utilizando a sintaxe **Mermaid.js**.
+Act as a Senior Solutions Architect. Based on the risk analysis and refined requirements we just generated above, create the code for a Flowchart using the **Mermaid.js** syntax.
 
-## Requisitos do Diagrama:
-1. **Orientação:** Top-Down (`graph TD`).
-2. **Cobertura:** Deve cobrir o "Caminho Feliz" (Sucesso) e TODOS os "Caminhos Infelizes" (Erros de API, Validação, Timeout, Falta de Saldo) identificados na análise anterior.
-3. **Estados de Interface:** Represente claramente telas de *Loading*, *Empty State* e *Feedback de Erro*.
-4. **Estilização Semântica:**
-   - Use nós retangulares `[]` para Ações do Usuário ou Processos do Sistema.
-   - Use losangos `{}` para Decisões de Lógica de Negócio (ex: "Tem saldo?", "API Online?").
-   - **Importante:** Aplique estilos (classes) para diferenciar visualmente:
-     - `classDef error fill:#f96,stroke:#333,stroke-width:2px;` (Para erros)
-     - `classDef success fill:#9f6,stroke:#333,stroke-width:2px;` (Para sucesso)
+## Diagram Requirements:
 
-## Saída Esperada:
-Apenas o bloco de código Markdown (```mermaid```) pronto para renderização. Não inclua explicações em texto.
+1. **Orientation:** Top-Down (`graph TD`).
+2. **Coverage:** Must cover the "Happy Path" (Success) and ALL "Unhappy Paths" (API Errors, Validation, Timeout, Insufficient Balance) identified in the previous analysis.
+3. **Interface States:** Clearly represent _Loading_, _Empty State_, and _Error Feedback_ screens.
 
+4. **Semantic Styling:**
+
+- Use rectangular `[]` nodes for User Actions or System Processes.
+
+- Use double-spaced diamonds `{}` for Business Logic Decisions (e.g., "Do you have a balance?", "Online API?").
+
+- **Important:** Apply styles (classes) to visually differentiate:
+
+- `classDef error fill:#f96,stroke:#333,stroke-width:2px;` (For errors)
+
+- `classDef success fill:#9f6,stroke:#333,stroke-width:2px;` (For success)
+
+## Expected Output:
+
+Only the Markdown code block (`mermaid`) ready for rendering. Do not include text explanations.
 
 ```mermaid
 graph TD
-    %% Definições de Estilo
-    classDef error fill:#f96,stroke:#333,stroke-width:2px;
-    classDef success fill:#9f6,stroke:#333,stroke-width:2px;
-    classDef uiState fill:#e1f5fe,stroke:#01579b,stroke-width:1px;
-    classDef process fill:#fff,stroke:#333,stroke-width:1px;
 
-    %% Fluxo de Seleção de Contato
-    Start((Início)) --> GetContacts[Carregar Lista de Contatos]
-    GetContacts --> LoadingContacts[UI: Loading Skeleton]
-    LoadingContacts --> CheckContacts{Há contatos?}
-    
-    CheckContacts -- Não --> EmptyContacts[UI: Empty State - Nenhum Contato]
-    EmptyContacts --> SearchContact[Busca Manual de Chave]
-    
-    CheckContacts -- Sim --> SelectContact[Selecionar Contato]
-    SearchContact --> SelectContact
+%% Style Definitions
 
-    %% Fluxo de Valores e Regras
-    SelectContact --> InputAmount[Inserir Valor R$]
-    InputAmount --> ValidateLimit{Valor > R$ 5.000,00?}
-    
-    ValidateLimit -- Sim --> ErrorLimit[UI: Erro - Limite Diário Excedido]:::error
-    ErrorLimit --> InputAmount
+classDef error fill:#f96,stroke:#333,stroke-width:2px;
+classDef success fill:#9f6,stroke:#333,stroke-width:2px;
+classDef uiState fill:#e1f5fe,stroke:#01579b,stroke-width:1px;
+classDef process fill:#fff,stroke:#333,stroke-width:1px;
 
-    ValidateLimit -- Não --> SelectDate[Selecionar Data no Calendário]
-    
-    %% Validação de Datas
-    SelectDate --> CheckDate{Data Selecionada}
-    CheckDate -- Hoje --> SuggestPix[UI: Sugestão - Mudar para Pix Normal]:::uiState
-    CheckDate -- Passado --> ErrorDate[UI: Erro - Data Retroativa Inválida]:::error
-    CheckDate -- Futuro --> ReviewScreen[UI: Tela de Revisão dos Dados]
+%% Contact Selection Flow
+Start((Start)) --> GetContacts[Load Contact List]
+GetContacts --> LoadingContacts[UI: Loading Skeleton]
+LoadingContacts --> CheckContacts{Contacts available?}
 
-    %% Processamento e Segurança
-    ReviewScreen --> ConfirmAction[Botão: Confirmar Agendamento]
-    ConfirmAction --> MFA[Desafio de Segurança: Senha/Biometria]
-    
-    MFA --> MFA_Check{Autenticado?}
-    MFA_Check -- Não --> MFA_Retry[UI: Feedback de Senha Incorreta]:::error
-    MFA_Retry --> MFA
-    
-    MFA_Check -- Sim --> API_Call[Chamada API: POST /pix/schedule]
-    API_Call --> LoadingAPI[UI: Loading Overlay Ativo]:::uiState
+CheckContacts -- No --> EmptyContacts[UI: Empty State - No Contacts]
+EmptyContacts --> SearchContact[Manual Key Search]
 
-    %% Tratamento de Respostas da API
-    LoadingAPI --> API_Response{Status API}
-    
-    API_Response -- 201 Created --> SuccessScreen[UI: Tela de Comprovante]:::success
-    API_Response -- 403 Forbidden --> ErrorBusiness[UI: Erro - Saldo Insuficiente/Regra de Risco]:::error
-    API_Response -- 429/500 --> ErrorServer[UI: Erro - Instabilidade no Bacen]:::error
-    API_Response -- Timeout --> ErrorTimeout[UI: Feedback - Verificar Extrato em Instantes]:::error
+CheckContacts -- Yes --> SelectContact[Select Contact]
+SearchContact --> SelectContact
 
-    %% Fluxo de Gerenciamento (Cancelamento)
-    SuccessScreen --> ListSchedule[Ir para: Meus Agendamentos]
-    ListSchedule --> CheckList{Há agendamentos?}
-    
-    CheckList -- Não --> EmptyList[UI: Empty State - Sem Agendamentos]:::uiState
-    CheckList -- Sim --> ViewDetails[Ver Detalhes do Agendamento]
-    
-    ViewDetails --> CancelAction[Botão: Cancelar Agendamento]
-    %% Aqui o Gemini comenteu um erro colocando as chaves e quebrando o desenho
-    CancelAction --> API_Cancel[Chamada API: DELETE /pix/schedule/id]
-    
-    API_Cancel --> CancelStatus{Status Cancelamento}
-    CancelStatus -- 200 OK --> CancelSuccess[UI: Toast - Agendamento Cancelado]:::success
-    CancelStatus -- 400 Bad Request --> CancelLocked[UI: Erro - Já em processamento de envio]:::error
+%% Amount and Rules Flow
+SelectContact --> InputAmount[Enter Amount (R$)]
+InputAmount --> ValidateLimit{Amount > R$ 5,000.00?}
 
-    %% Relacionamentos de Erro
-    ErrorLimit -.-> InputAmount
-    ErrorDate -.-> SelectDate
-    ErrorBusiness -.-> ReviewScreen
-    ErrorServer -.-> ConfirmAction
-    CancelLocked -.-> ListSchedule
+ValidateLimit -- Yes --> ErrorLimit[UI: Error - Daily Limit Exceeded]:::error
+ErrorLimit --> InputAmount
+
+ValidateLimit -- No --> SelectDate[Select Date from Calendar]
+
+%% Date Validation
+SelectDate --> CheckDate{Selected Date}
+CheckDate -- Today --> SuggestPix[UI: Suggestion - Switch to Standard Pix]:::uiState
+CheckDate -- Past --> ErrorDate[UI: Error - Invalid Past Date]:::error
+CheckDate -- Future --> ReviewScreen[UI: Data Review Screen]
+
+%% Processing and Security
+ReviewScreen --> ConfirmAction[Button: Confirm Scheduling]
+ConfirmAction --> MFA[Security Challenge: Password/Biometrics]
+
+MFA --> MFA_Check{Authenticated?}
+MFA_Check -- No --> MFA_Retry[UI: Incorrect Password Feedback]:::error
+MFA_Retry --> MFA
+
+MFA_Check -- Yes --> API_Call[API Call: POST /pix/schedule]
+API_Call --> LoadingAPI[UI: Active Loading Overlay]:::uiState
+
+%% API Response Handling
+LoadingAPI --> API_Response{API Status}
+
+API_Response -- 201 Created --> SuccessScreen[UI: Receipt Screen]:::success
+API_Response -- 403 Forbidden --> ErrorBusiness[UI: Error - Insufficient Balance/Risk Rule]:::error
+API_Response -- 429/500 --> ErrorServer[UI: Error - Central Bank Instability]:::error
+API_Response -- Timeout --> ErrorTimeout[UI: Feedback - Check Statement Shortly]:::error
+
+%% Management Flow (Cancellation)
+SuccessScreen --> ListSchedule[Go to: My Scheduled Transfers]
+ListSchedule --> CheckList{Are there scheduled transfers?}
+
+CheckList -- No --> EmptyList[UI: Empty State - No Scheduled Transfers]:::uiState
+CheckList -- Yes --> ViewDetails[View Schedule Details]
+
+ViewDetails --> CancelAction[Button: Cancel Scheduled Transfer]
+CancelAction --> API_Cancel[API Call: DELETE /pix/schedule/id]
+
+API_Cancel --> CancelStatus{Cancellation Status}
+CancelStatus -- 200 OK --> CancelSuccess[UI: Toast - Scheduled Transfer Cancelled]:::success
+CancelStatus -- 400 Bad Request --> CancelLocked[UI: Error - Already being processed for sending]:::error
+
+%% Error Relationships
+ErrorLimit -.-> InputAmount
+ErrorDate -.-> SelectDate
+ErrorBusiness -.-> ReviewScreen
+ErrorServer -.-> ConfirmAction
+CancelLocked -.-> ListSchedule
 ```

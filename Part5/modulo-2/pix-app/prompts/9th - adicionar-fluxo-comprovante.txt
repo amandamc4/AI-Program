@@ -1,5 +1,5 @@
-integre o @pix-receipt.component.ts na nossa tela principal @pix-transfer.component.ts. 
-Siga rigorosamente a documentação oficial do Angular (versão 21) para aplicar as melhores práticas. 
-Atualize a regra no botão de confirmar: se o valor for válido e menor ou igual a 5000, o formulário de transferência deve sumir e o 
-PixReceiptComponent deve ser renderizado, recebendo os dados via @Input. Use a sintaxe moderna de control flow (@if / @else) 
-documentada pelo Angular no template para alternar entre as telas.
+Integrate `@pix-receipt.component.ts` into our main screen, `@pix-transfer.component.ts`.
+Strictly follow the official Angular documentation (version 21) to apply best practices.
+Update the logic for the confirm button: if the amount is valid and less than or equal to 5000, the transfer form should disappear and the
+`PixReceiptComponent` should be rendered, receiving the data via `@Input`. Use the modern control flow syntax (`@if` / `@else`)
+documented by Angular in the template to toggle between the screens.

@@ -1,3 +1,3 @@
-Aula 2 - prompt seguindo design-tokens-generator
+Lesson 2 - Prompt based on design-tokens-generator
 
-Estilize a nossa estrutura de navegacao no @app.html e o nosso formulario no @pix-transfer.html. mportante: Voce esta proibido de usar cores hexadecimais absolutas. Voce deve obrigatoriamente consumir as variaveis que criou no @src/styles.css usando a funcao var(). Alem disso, separe o template do compomente pix transfer em seu proprio HTML e a rota base da aplicacao deve ser esse compnente
+Style the navigation structure in `@app.html` and the form in `@pix-transfer.html`. Important: You are prohibited from using hardcoded hex color values. You must use the variables created in `@src/styles.css` via the `var()` function. Additionally, move the `pix-transfer` component's template into its own HTML file, and set this component as the application's base route.

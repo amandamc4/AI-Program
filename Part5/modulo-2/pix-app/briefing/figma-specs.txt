@@ -1,24 +1,24 @@
---- REFERÊNCIA DO DEV MODE DO FIGMA ---
+--- FIGMA DEV MODE REFERENCE ---
 
-Componente: PixHistoryList
+Component: PixHistoryList
 Layout: Auto Layout (Flexbox)
 Direction: Vertical
 Gap: 0px
 
-Componente: TransactionItem
+Component: TransactionItem
 Layout: Auto Layout (Flexbox)
 Direction: Horizontal
 Justify Content: Space between
 Align Items: Center
 Padding: 16px 24px
-Border-bottom: 1px solid #E2E8F0 (Usar token de borda)
+Border-bottom: 1px solid #E2E8F0 (Use border token)
 
-Tipografia e Cores (Substituir por Tokens):
-- Título da Transação: Font-weight 600, Size 16px
-- Data da Transação: Font-weight 400, Size 12px, Color #64748B
-- Valor Positivo (Recebido): Font-weight 700, Size 16px, Color #10B981
-- Valor Negativo (Enviado): Font-weight 700, Size 16px, Color #EF4444
+Typography and Colors (Replace with Tokens):
+- Transaction Title: Font-weight 600, Size 16px
+- Transaction Date: Font-weight 400, Size 12px, Color #64748B
+- Positive Amount (Received): Font-weight 700, Size 16px, Color #10B981
+- Negative Amount (Sent): Font-weight 700, Size 16px, Color #EF4444
 
-Ícones:
-- Espaçamento entre o ícone e o texto (Gap): 12px
-- Tamanho do Ícone: 24px
+Icons:
+- Spacing between icon and text (Gap): 12px
+- Icon Size: 24px

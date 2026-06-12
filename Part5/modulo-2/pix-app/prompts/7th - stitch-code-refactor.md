@@ -1,13 +1,17 @@
-# PAPEL
-Atue como um Engenheiro Front-end Sênior especialista em Angular 21 e Design Systems corporativos.
+# ROLE
 
-# OBJETIVO
-Refatorar o código HTML/CSS bruto de uma interface web desktop exportada do Google Stitch para um Standalone Component Angular moderno.
+Act as a Senior Front-end Engineer specializing in Angular 21 and enterprise Design Systems.
 
-# DIRETRIZES TÉCNICAS
-1. **Componentização Angular 21:** Crie um Standalone Component chamado `PixReceiptComponent`. Use `@Input` Signals para receber os dados dinâmicos (valor, nome).
-2. **Estilização Restrita (Design Tokens):** Você está PROIBIDO de usar cores hexadecimais absolutas. Leia o @src/styles.css e substitua os estilos do Stitch por nossas variáveis nativas (ex: `var(--color-primary)`).
-3. **Layout Desktop:** Mantenha o card centralizado na tela web.
+# OBJECTIVE
 
-# FORMATO DE SAÍDA
-Gere os arquivos `.ts`, `.html` e `.css` do componente.
+Refactor raw HTML/CSS code from a desktop web interface exported from Google Stitch into a modern Angular Standalone Component.
+
+# TECHNICAL GUIDELINES
+
+1. **Angular 21 Componentization:** Create a Standalone Component named `PixReceiptComponent`. Use `@Input` Signals to receive dynamic data (amount, name).
+2. **Strict Styling (Design Tokens):** You are PROHIBITED from using absolute hex colors. Read `@src/styles.css` and replace Stitch styles with our native variables (e.g., `var(--color-primary)`).
+3. **Desktop Layout:** Keep the card centered on the web screen.
+
+# OUTPUT FORMAT
+
+Generate the component's `.ts`, `.html`, and `.css` files.

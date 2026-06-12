@@ -1,8 +1,8 @@
-Sua tarefa e validar o fluxo de "cadastro de Local do Evento" no nosso monorepo Nx.
-Siga exatamente estes passos:
-1 - Certifique-se de que o ambiente completo (Frontend e API) esta rodando. Para isso, execute o comando 'nx run-many -t serve'.
-2 - Assim que o sistema estiver disponivel em http://localhost:4200, use as ferramentas do Playwright para navegar ate a aplicacao.
-3 - Encontre o formulario de Cadastro de Evento e preencha com dados realistas.
-4 - Submeta o formulario e valide se a mensagem de sucesso apareceu.
+Your task is to validate the "Event Location Registration" flow in our Nx monorepo.
+Follow these steps exactly:
+1 - Ensure the full environment (Frontend and API) is running. To do this, execute the command `nx run-many -t serve`.
+2 - Once the system is available at http://localhost:4200, use the Playwright tools to navigate to the application.
+3 - Locate the Event Registration form and fill it out with realistic data.
+4 - Submit the form and verify that the success message appears.
 
-use as ferramentas do Playwright MCP disponiveis para navegar e interagir. Reporte qualquer falha ou o sucesso da operacao. 
+Use the available Playwright MCP tools to navigate and interact. Report any failures or the success of the operation.

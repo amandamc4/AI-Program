@@ -1,8 +1,8 @@
 /opsx:new add-cfp-dashboard
-Objetivo: Criar um Dashboard para listar as palestras submetidas.
-Backend (NestJS): Adicionar uma rota GET no CfpController que retorne um array de SpeakerDTO.
-Frontend (Angular21): Criar um CfpDashboardComponent. Injetar o HttpClient para construir a rota GET. Gerenciar o estado com Signals (WritableSignal<SpeakerDTO>).
-UI/UX (Importante): Aplicat HTML semantico (tabela ou lista de cards) e manter rigorosamente a identidade visual, o design e as cores (Design Tokens) ja estabelicidos no formulario original (CfpFormComponent) para garantir consistencia na interface.
-Roteamento: Adicionar a rota path: 'dashboard' apontando para o componente. Adicionar um botao de navegacao no formulario mantendo o mesmo estilo visual.
+Objective: Create a dashboard to list submitted talks.
+Backend (NestJS): Add a GET route to `CfpController` that returns an array of `SpeakerDTO`.
+Frontend (Angular 21): Create a `CfpDashboardComponent`. Inject `HttpClient` to implement the GET request. Manage state using Signals (`WritableSignal<SpeakerDTO>`).
+UI/UX (Important): Use semantic HTML (table or list of cards) and strictly adhere to the visual identity, design, and colors (Design Tokens) established in the original form (`CfpFormComponent`) to ensure interface consistency.
+Routing: Add a route (`path: 'dashboard'`) pointing to the component. Add a navigation button to the form, maintaining the same visual style.
 
-depois de completo: /opsx:archive add-cfp-dashboard
+Upon completion: /opsx:archive add-cfp-dashboard
