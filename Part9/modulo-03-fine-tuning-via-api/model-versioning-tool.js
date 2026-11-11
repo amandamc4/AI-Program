@@ -9,9 +9,11 @@
  * não em nome de arquivo ou data, que podem mudar sem o conteúdo mudar.
  *
  * Uso: node model-versioning-tool.js
+ * Requer: TUNING_JOB_NAME definida com o nome completo do SEU job de
+ * fine-tuning (veja README.md, seção "Antes de rodar").
  *
  * Nota de validade (ago/2026): este script não tem constante de modelo pra
- * trocar - ele consulta o job real (JOB_REAL acima) e usa o que a API
+ * trocar - ele consulta o job real (TUNING_JOB_NAME acima) e usa o que a API
  * devolver (job.baseModel), então sempre reflete a versão de verdade usada
  * naquele job específico, não uma suposição hardcoded. A Google aposenta
  * versões do Gemini com aviso prévio (a família 2.5 tem retirement anunciado
@@ -32,8 +34,28 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const REGIAO = 'us-central1';
-const JOB_REAL = 'projects/113512199474/locations/us-central1/tuningJobs/4180970763655839744';
+// CONFIGURAÇÃO: defina TUNING_JOB_NAME com o nome completo do job de
+// fine-tuning que VOCÊ rodou (projects/.../tuningJobs/...), criado no
+// Módulo 3.2 -- não há valor padrão, cada aluno usa o próprio job.
+const JOB_REAL = process.env.TUNING_JOB_NAME;
+if (!JOB_REAL) {
+  throw new Error('Defina a variável de ambiente TUNING_JOB_NAME com o nome completo do seu job de fine-tuning antes de rodar este script.');
+}
 const CAMINHO_DATASET = path.join(__dirname, 'dataset-treinado.jsonl');
+
+// Job de preference tuning (DPO) do Módulo 3.5, continuação do job SFT
+// acima sobre o mesmo modelo base. Histórico e congelado (job já
+// concluído), por isso é uma constante, não uma consulta nova à API a cada
+// rodada -- ao contrário do job SFT acima, que é sempre revalidado de
+// verdade. Este é o resultado de referência do curso, ilustrativo, não um
+// recurso que você chama: se você rodar seu próprio DPO no Módulo 3.5,
+// edite esta seção com o ID e as métricas do seu job.
+const JOB_DPO_REAL = {
+  jobId: 'tuningJobs/3733013646142341120',
+  estado: 'JOB_STATE_SUCCEEDED',
+  duracaoFormatada: '17min 32s',
+  exemplos: 40,
+};
 
 // Faixa de custo de GPU cloud por hora, do cheatsheet do Modulo 1.3
 // (fine-tuning-types-cheatsheet.md, secao LoRA): referencia de mercado, nao
@@ -238,6 +260,29 @@ function gerarModelCardMarkdown(ficha) {
   return linhas.join('\n');
 }
 
+/**
+ * Seção fixa sobre o job real de preference tuning (DPO) do Módulo 3.5,
+ * continuação do job SFT documentado acima sobre o mesmo modelo base.
+ * Separada de gerarModelCardMarkdown de propósito: aquela função é sempre
+ * gerada a partir de um `job` consultado ao vivo na API (pode mudar de
+ * conteúdo a cada rodada real), esta é um fato histórico já congelado
+ * (job concluído em 2026-08) que não depende de nenhuma consulta nova.
+ */
+function gerarSecaoDPO() {
+  const j = JOB_DPO_REAL;
+  return [
+    ``,
+    `## Continuação: preference tuning (DPO)`,
+    ``,
+    `O Módulo 3.5 vai além do fine-tuning supervisionado acima e testa preference tuning (DPO) sobre o mesmo modelo base: 40 dos 200 exemplos deste job foram convertidos em pares de preferência (\`chosen\`/\`rejected\`) - a extração correta de sempre (\`chosen\`) contra uma resposta real gerada por um prompt deliberadamente mais fraco (\`rejected\`, sem exigir JSON estrito). O dataset de preferência resultante está em \`preference-dataset-amplitude.jsonl\`, nesta mesma pasta.`,
+    ``,
+    `- Job: \`${j.jobId}\``,
+    `- Estado: ${j.estado}`,
+    `- Duração real: ${j.duracaoFormatada} (mais rápido que o SFT acima, dataset 5x menor: ${j.exemplos} exemplos contra 200)`,
+    `- Exemplos: ${j.exemplos} pares de preferência`,
+  ].join('\n');
+}
+
 /* --------------------------------------------------------------------------
  * 4. Testes automatizados
  * -------------------------------------------------------------------------- */
@@ -372,6 +417,15 @@ function rodarTestes() {
     assert.equal(ficha.custoReal.custoReais, 2.39);
   });
 
+  testar('seção de DPO cita o job real de preference tuning do Módulo 3.5', () => {
+    const secao = gerarSecaoDPO();
+    assert.ok(secao.includes('## Continuação: preference tuning (DPO)'));
+    assert.ok(secao.includes('tuningJobs/3733013646142341120'));
+    assert.ok(secao.includes('17min 32s'));
+    assert.ok(secao.includes('40 pares de preferência'));
+    assert.ok(secao.includes('preference-dataset-amplitude.jsonl'));
+  });
+
   console.log();
   console.log(`Total: ${totalTestes} teste(s), ${totalTestes - testesComFalha} passou(passaram), ${testesComFalha} falhou(falharam).`);
 }
@@ -397,7 +451,7 @@ async function main() {
     console.log('\nFicha completa e validada:');
     console.log(JSON.stringify(ficha, null, 2));
 
-    const markdown = gerarModelCardMarkdown(ficha);
+    const markdown = gerarModelCardMarkdown(ficha) + '\n' + gerarSecaoDPO();
     const caminhoSaida = path.join(__dirname, 'model-card-amplitude-auto-saude-m3-200.md');
     fs.writeFileSync(caminhoSaida, markdown);
     console.log(`\nModel card gerado em: ${caminhoSaida}`);
