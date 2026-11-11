@@ -145,3 +145,5 @@ vite.config.ts.timestamp-*
 
 neo4j
 Part2/*/dbdata/*
+
+/skills/
